@@ -37,8 +37,8 @@ yarn add class-validator class-transformer
 yarn add argon2
 npx prisma studio
 yarn add @nestjs/config
-yarn add @nestjs/passport passport
-yarn add @nestjs/jwt passport-jwt
+yarn add @nestjs/passport passport @nestjs/jwt passport-jwt
+yarn add -D @types/passport-jwt  
 
 //prisma service and module added
 yarn

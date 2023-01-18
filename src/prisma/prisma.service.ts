@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaClient } from '@prisma/client';
-
+// npx prisma migrate dev to restart prisma
 @Injectable()
 export class PrismaService extends PrismaClient {
   constructor() {

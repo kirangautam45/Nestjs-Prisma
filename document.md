@@ -38,7 +38,7 @@ yarn add argon2
 npx prisma studio
 yarn add @nestjs/config
 yarn add @nestjs/passport passport @nestjs/jwt passport-jwt
-yarn add -D @types/passport-jwt  
+yarn add -D @types/passport-jwt
 
 //prisma service and module added
 yarn
@@ -57,9 +57,9 @@ npx prisma migrate dev
 npx prisma studio
 yarn start:dev
 
-// Service restart
-yarn db:dev:restart
-
 docker compose up dev-db -d
 npx prisma studio
+
+// Service restart
+yarn db:dev:restart
 yarn start:dev

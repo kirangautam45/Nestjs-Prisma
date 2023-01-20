@@ -32,13 +32,8 @@ ggpush
 npx prisma migrate dev
 
 //dependency added
-yarn add --save-dev prisma@latest @prisma/client@latest
-yarn add class-validator class-transformer
-yarn add argon2
-npx prisma studio
-yarn add @nestjs/config
-yarn add @nestjs/passport passport @nestjs/jwt passport-jwt
-yarn add -D @types/passport-jwt
+yarn add --save-dev prisma@latest @prisma/client@latest class-validator class-transformer argon2
+npx prisma studio @nestjs/config @nestjs/passport passport @nestjs/jwt passport-jwt -D @types/passport-jwt
 
 //prisma service and module added
 yarn

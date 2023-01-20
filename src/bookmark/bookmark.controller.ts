@@ -1,6 +1,7 @@
 import {
   Body,
   Controller,
+  Delete,
   Get,
   Param,
   ParseIntPipe,
@@ -14,6 +15,7 @@ import { GetUser } from '../auth/decorator';
 import { JwtGuard } from '../auth/guard';
 import { get } from 'http';
 import { getuid } from 'process';
+import { EditBookmarkDto } from './dto/edit-bookmark.dto';
 
 @UseGuards(JwtGuard)
 @Controller('bookmarks')
@@ -40,5 +42,21 @@ export class BookmarkController {
   @Get()
   getBookmarkMany(@GetUser('id') userId: number) {
     return this.bookmarkService.getBookmarkMany(userId);
+  }
+
+  @Patch(':id')
+  editBookmark(
+    @GetUser('id') userId: number,
+    @Param('id', ParseIntPipe) bookmarkId: number,
+    @Body() dto: EditBookmarkDto,
+  ) {
+    return this.bookmarkService.editBookmark(userId, bookmarkId, dto);
+  }
+  @Delete(':id')
+  deleteBookmark(
+    @GetUser('id') userId: number,
+    @Param('id', ParseIntPipe) bookmarkId: number,
+  ) {
+    return this.bookmarkService.deleteBookmark(userId, bookmarkId);
   }
 }

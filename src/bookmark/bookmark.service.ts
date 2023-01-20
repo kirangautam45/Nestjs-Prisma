@@ -9,7 +9,10 @@ export class BookmarkService {
 
   async createBookmark(userId: number, dto: CreateBookmarkDto) {
     const bookMark = await this.prisma.bookmark.create({
-      data: { userId, ...dto },
+      data: {
+        userId,
+        ...dto,
+      },
     });
     return bookMark;
   }
@@ -43,6 +46,21 @@ export class BookmarkService {
       },
       data: {
         ...dto,
+      },
+    });
+  }
+  async deleteBookmark(userId: number, bookmarkId: number) {
+    const findBook = await this.prisma.bookmark.findUnique({
+      where: {
+        id: bookmarkId,
+      },
+    });
+    if (!findBook || findBook.userId !== userId)
+      throw new ForbiddenException('Access to resources denied');
+
+    await this.prisma.bookmark.delete({
+      where: {
+        id: bookmarkId,
       },
     });
   }

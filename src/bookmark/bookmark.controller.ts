@@ -3,6 +3,7 @@ import {
   Controller,
   Delete,
   Get,
+  HttpCode,
   Param,
   ParseIntPipe,
   Patch,
@@ -13,9 +14,9 @@ import { CreateBookmarkDto } from './dto/create-bookmark.dto';
 import { BookmarkService } from './bookmark.service';
 import { GetUser } from '../auth/decorator';
 import { JwtGuard } from '../auth/guard';
-import { get } from 'http';
-import { getuid } from 'process';
 import { EditBookmarkDto } from './dto/edit-bookmark.dto';
+import { STATUS_CODES } from 'http';
+import { Stats } from 'fs';
 
 @UseGuards(JwtGuard)
 @Controller('bookmarks')

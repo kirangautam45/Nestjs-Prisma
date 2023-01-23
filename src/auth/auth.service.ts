@@ -20,14 +20,9 @@ export class AuthService {
         data: {
           email: dto.email,
           hash,
+          updatedAT: new Date(),
         },
-        // select: {
-        //   id: true,
-        //   email: true,
-        //   createdAt: true,
-        // },
       });
-
       return this.signToken(user.id, user.email);
     } catch (error) {
       if (error instanceof PrismaClientKnownRequestError) {

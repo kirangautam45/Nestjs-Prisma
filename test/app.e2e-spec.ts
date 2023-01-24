@@ -1,4 +1,4 @@
-import { INestApplication, ValidationPipe } from '@nestjs/common';
+import { INestApplication, ValidationPipe, Body } from '@nestjs/common';
 import { Test } from '@nestjs/testing';
 import * as pactum from 'pactum';
 import { AppModule } from '../src/app.module';
@@ -28,19 +28,16 @@ describe('AppController (e2e)', () => {
     app.close();
   });
   describe('Auth', () => {
-    // const dto: AuthDto = {
-    //   email: 'kiran@gmail.com',
-    //   password: '1234',
-    // };
+    const dto: AuthDto = {
+      email: 'kiran@gmail.com',
+      password: '1234',
+    };
     describe('signup', () => {
       it('Should Register User', () => {
         return pactum
           .spec()
           .post('auth/register')
-          .withJson({
-            email: 'kiran@gmail.com',
-            password: '123',
-          })
+          .withBody(dto)
           .expectStatus(201);
       });
     });

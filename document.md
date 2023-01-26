@@ -21,14 +21,10 @@ clear
 //Dependency added
 yarn add -D prism
 yarn add @prisma/client
+
+
+//prisma Setup 
 npx prisma init
-
-//git commit
-gaa
-git commit -m "prisma added"
-ggpush
-
-//restart service
 npx prisma migrate dev
 
 //dependency added
@@ -38,7 +34,6 @@ npx prisma studio @nestjs/config @nestjs/passport passport @nestjs/jwt passport-
 //prisma service and module added
 yarn
 nest g module prisma
-clear
 nest g service prisma --no-spec
 
 //all Service restart
